@@ -1,8 +1,16 @@
 import React from "react";
-import "./style.css";
+//import "./style.css";
+import GlobalStyle from './globalStyles'
+import { Navbar } from "./components";
+import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
-  return <div>Initial Commit</div>;
+  return (
+    <BrowserRouter>
+    <GlobalStyle/>
+      <Navbar />
+    </BrowserRouter>
+  );
 }
 
 export default App;
