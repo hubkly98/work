@@ -41,7 +41,7 @@ const Navbar = () => {
           <NavbarContainer>
             <NavLogo to='/'>
               <NavIcon />
-              Medical
+              Hipokrates
             </NavLogo>
             <MobileIcon onClick={handleClick}>
               {" "}

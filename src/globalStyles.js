@@ -26,25 +26,25 @@ export const Container = styled.div`
 
 export const Button = styled.button`
   border-radius: 15px;
-  background: ${({ primary }) => (primary ? "#008080" : "#4b59F7")};
+  background: ${({ primary }) => (primary ? "#28AD97" : "#008080")};
   white-space: nowrap;
   //ten padding to chyba do zmiany
   padding: ${({ big }) => (big ? "12px 64px" : "10px 20px")};
-  color: #fff;
+  color: #fff; //button color
   font-size: ${({ fontBig }) => (fontBig ? "1.4rem" : "1.2rem")};
 
   outline: none;
   border: none;
   cursor: pointer;
 
+  @media screen and (max-width: 960px) {
+    width: 100%; // to zmienić żeby "GET STARTED" nie rozciągał się na cała strone xD
+  }
   &:hover {
     transition: all 0.3s ease-out;
     background: #fff;
     background: ${({ secondary }) => (secondary ? "teal" : "#4B59F7")};
     
-    @media screen and (max-width: 960px) {
-      width: 100%;
-    }
   }
 `;
 

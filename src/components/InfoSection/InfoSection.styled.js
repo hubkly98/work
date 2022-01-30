@@ -40,3 +40,38 @@ export const TextWrapper = styled.div`
     padding-bottom: 65px;
   }
 `;
+export const TopLine = styled.div`
+  color: ${({ lightTopLine }) => (lightTopLine ? "#a9b3c1" : "#4B59F7")};
+  font-size: 18px;
+  line-height: 60px;
+  letter-spacing: 1.4px;
+  margin-bottom: 16px;
+`;
+
+export const Heading = styled.h1`
+  margin-bottom: 24px;
+  font-size: 48px;
+  line-height: 1.1;
+  color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#1c2237")};
+`;
+
+export const Subtitle = styled.p`
+  max-width: 440px;
+  margin-bottom: 35px;
+  font-size: 18px;
+  line-height: 24px;
+  color: ${({ lightTextDesc }) => (lightTextDesc ? "#a9b3c1" : "#1c2237")};
+`;
+export const ImgWrapper = styled.div`
+  max-width: 555px;
+  display:flex;
+  justify-content: ${({ start }) => (start ? "flex-start" : "flex-end")};
+`;
+export const Img = styled.img`
+  padding-right: 0;
+  border: 0;
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  max-height: 500px;
+`;
