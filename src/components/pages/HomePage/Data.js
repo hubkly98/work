@@ -6,10 +6,10 @@ export const homeObjOne = {
   buttonLabel:'Get Started',
   lightTextDesc:true,
   description:"Tworzymy stronę specjalnie dla twoich potrzeb",
-  headline:'Lekarze pomagaja ludziom(Chyba)',
+  headline:'Jesteśmy tutaj dla twojej troski',
   lightText:true,
   topLine:'Margeting Agency',
-  img: require('../images/fotka1.svg').default,
+  img: require('../../../images/fotka1.svg').default,
   alt:'Image',
   start:''
 };
@@ -23,10 +23,10 @@ export const homeObjTwo = {
   buttonLabel:'Get Started',
   lightTextDesc:true,
   description:"Tworzymy stronę specjalnie dla twoich potrzeb",
-  headline:'Lekarze pomagaja ludziom(Chyba)',
+  headline:'Informacje o szczepieniu',
   lightText:false,
   topLine:'Margeting Agency',
-  img: require('../images/fotka2.svg').default,
+  img: require('../../../images/fotka2.svg').default,
   alt:'Image',
   start:'true'
 };
@@ -44,7 +44,7 @@ export const homeObjThree = {
   headline:'Lekarze pomagaja ludziom(Chyba)',
   lightText:true,
   topLine:'Margeting Agency',
-  img: require('../images/fotka3.svg').default,
+  img: require('../../../images/fotka3.svg').default,
   alt:'Image',
   start:''
 };
@@ -62,7 +62,7 @@ export const homeObjFour = {
   headline:'Lekarze pomagaja ludziom(Chyba)',
   lightText:false,
   topLine:'Margeting Agency',
-  img: require('../images/fotka4.svg').default,
+  img: require('../../../images/fotka4.svg').default,
   alt:'Image',
   start:'true'
 };

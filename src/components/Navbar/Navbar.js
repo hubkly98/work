@@ -58,10 +58,18 @@ const Navbar = () => {
               </NavItem>
 
               <NavItem>
+                <NavLinks to='/covid'>Covid-19</NavLinks>
+              </NavItem>
+
+              <NavItem>
                 <NavLinks to='/specialists'>Specjalisci</NavLinks>
               </NavItem>
 
-              <NavItemBtn>
+              <NavItem>
+                <NavLinks to='/specialists'>Kontakt</NavLinks>
+              </NavItem>
+
+              {/* <NavItemBtn>
                 {button ? (
                   <NavBtnLink to='/sign-up'>
                     <Button fontBig primary>Zaloguj sie</Button>
@@ -72,7 +80,9 @@ const Navbar = () => {
                    
                   </NavBtnLink>
                 )}
-              </NavItemBtn>
+              </NavItemBtn> */}
+
+
             </NavMenu>
           </NavbarContainer>
         </Nav>

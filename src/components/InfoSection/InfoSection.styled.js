@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const InfoSec = styled.div`
   color: #fff;
   padding: 160px 0;
-  background: ${({ lightBg }) => (lightBg ? "#fff" : "#101522")};
+  background: ${({ lightBg }) => (lightBg ? "#fff" : "#224558")};
 `;
+//5C6469
 
 export const InfoRow = styled.div`
   display: flex;

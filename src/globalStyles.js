@@ -43,7 +43,7 @@ export const Button = styled.button`
   &:hover {
     transition: all 0.3s ease-out;
     background: #fff;
-    background: ${({ secondary }) => (secondary ? "teal" : "#4B59F7")};
+    background: ${({ secondary }) => (secondary ? "teal" : "#4B59F7")};//4EB3E0
     
   }
 `;
