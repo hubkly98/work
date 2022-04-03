@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './components/pages/HomePage/Home';
 import Covid from './components/pages/Covid/Covid';
 import Specialists from './components/pages/Specialists/Specjalists';
+import { LoginForm } from "./auth/LoginForm";
 import { Footer, Navbar } from "./components";
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/covid' element={<Covid />} />
         <Route path='/specjalists' element={<Specialists />} />
+        <Route path='/sign-up' element={<LoginForm />} />
 
       </Routes>
       <Footer/>

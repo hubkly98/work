@@ -15,7 +15,8 @@ import {
   NavItemBtn,
   NavBtnLink,
 } from "./Navbar.styled";
-const Navbar = () => {
+
+export default function  Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -69,7 +70,7 @@ const Navbar = () => {
                 <NavLinks to='/specialists'>Kontakt</NavLinks>
               </NavItem>
 
-              {/* <NavItemBtn>
+              <NavItemBtn>
                 {button ? (
                   <NavBtnLink to='/sign-up'>
                     <Button fontBig primary>Zaloguj sie</Button>
@@ -80,7 +81,7 @@ const Navbar = () => {
                    
                   </NavBtnLink>
                 )}
-              </NavItemBtn> */}
+              </NavItemBtn>
 
 
             </NavMenu>
@@ -91,4 +92,3 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
