@@ -1,6 +1,8 @@
-import { Pliki, InPut, Main } from "./LoginForm.styled";
+import { Pliki, InPut, Main,Text,Button } from "./LoginForm.styled";
 
 import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
 import { signup, useAuth, logout, login } from "../firebase";
 
 export const LoginForm = () => {
@@ -40,15 +42,26 @@ export const LoginForm = () => {
       <div>Currently logged in as: {currentUser?.email}</div>
 
       <Pliki>
-        <InPut ref={emailRef} placeholder='Email' />
+        <Text>Login</Text>
+        <InPut ref={emailRef} placeholder='Email' type="text" />
         <InPut ref={passwordRef} type='password' placeholder='Password' />
-      </Pliki>
-      <button disabled={loading || currentUser} onClick={handleSignUp}>
-        Zarejestruj się
-      </button>
-      <button disabled={loading || currentUser} onClick={handleLogin}>
+      
+        <Button class="logbtn" disabled={loading || currentUser} onClick={handleLogin}>
         Zaloguj się
+
+      </Button>
+        
+      {/* DOKONCZ SPAN I LINK DO REJESTRACJI  */}
+        <span>Nie masz konta? </span>
+        <Link to='/'>
+          <p>Zarejestruj sie</p>
+       </Link>
+      </Pliki>
+
+      <button value="Zarejestruj sie" disabled={loading || currentUser} onClick={handleSignUp}>Zarejestruj sie
       </button>
+
+     
       <button disabled={loading || !currentUser} onClick={handleLogOut}>
         Wyloguj
       </button>
