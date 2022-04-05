@@ -1,4 +1,4 @@
-import { Pliki, InPut, Main,Text,Button } from "./LoginForm.styled";
+import { Pliki, InPut, Main,Text,Text2,Button } from "./LoginForm.styled";
 
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -52,10 +52,10 @@ export const LoginForm = () => {
       </Button>
         
       {/* DOKONCZ SPAN I LINK DO REJESTRACJI  */}
-        <span>Nie masz konta? </span>
-        <Link to='/'>
-          <p>Zarejestruj sie</p>
-       </Link>
+        <Text2>Nie masz konta? <Link to='/'>
+         Zarejestruj sie
+       </Link></Text2>
+        
       </Pliki>
 
       <button value="Zarejestruj sie" disabled={loading || currentUser} onClick={handleSignUp}>Zarejestruj sie

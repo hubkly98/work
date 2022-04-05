@@ -58,3 +58,9 @@ export const Button = styled.button`
     background-image: linear-gradient(630deg, #dfe6e9,#dfe6e9, #dfe6e9,#dfe6e9);
   }
 `;
+
+export const Text2 = styled.div`
+    margin-top:40px;
+    text-align:center;
+    font-size:15px;
+`
