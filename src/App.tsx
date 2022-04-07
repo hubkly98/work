@@ -6,6 +6,7 @@ import Home from './components/pages/HomePage/Home';
 import Covid from './components/pages/Covid/Covid';
 import Specialists from './components/pages/Specialists/Specjalists';
 import { LoginForm } from "./auth/LoginForm";
+import {SignupForm} from './auth/SignupForm';
 import { Footer, Navbar } from "./components";
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/covid' element={<Covid />} />
         <Route path='/specjalists' element={<Specialists />} />
-        <Route path='/sign-up' element={<LoginForm />} />
+        <Route path='/login' element={<LoginForm />} />
+        <Route path='/sign-up' element={<SignupForm />} />
 
       </Routes>
       <Footer/>

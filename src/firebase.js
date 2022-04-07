@@ -27,9 +27,12 @@ export function signup(email, password) {
   return createUserWithEmailAndPassword(auth, email, password);
 }
 
+
 export function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
+
+
 
 export function logout() {
   return signOut(auth);
@@ -45,6 +48,7 @@ export function useAuth() {
     const unsub = onAuthStateChanged(auth, (user) => setCurrentUser(user));
     return unsub;
   }, []);
+  
 
   return currentUser;
 }

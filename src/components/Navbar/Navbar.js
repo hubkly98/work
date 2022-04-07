@@ -42,7 +42,7 @@ export default function  Navbar() {
           <NavbarContainer>
             <NavLogo to='/'>
               <NavIcon />
-              Hipokrates
+              Teleporadnia
             </NavLogo>
             <MobileIcon onClick={handleClick}>
               {" "}
@@ -72,11 +72,11 @@ export default function  Navbar() {
 
               <NavItemBtn>
                 {button ? (
-                  <NavBtnLink to='/sign-up'>
+                  <NavBtnLink to='/login'>
                     <Button fontBig primary>Zaloguj sie</Button>
                   </NavBtnLink>
                 ) : (
-                  <NavBtnLink to='/sign-up'>
+                  <NavBtnLink to='/login'>
                     <Button  primary> Zaloguj sie</Button>
                    
                   </NavBtnLink>
