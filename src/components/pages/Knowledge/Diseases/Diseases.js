@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import SearchIcon1 from "@material-ui/icons/Search";
+import CloseIcon from "@material-ui/icons/Close";
+
 import {
   DiseasSection,
   DiseasContainer,
@@ -8,136 +11,76 @@ import {
   IconWrap,
   IconWrap2,
   Title,
-  Cards,
   Grid,
+  SearchInputs,
+  Searchin,
+  SearchIcon,
 } from "./Diseases.styled";
+
 // import SearchBar from "../../SearchBar/SearchBar";
 // import { NavLinks } from "../../Navbar/Navbar.styled";
 
-const Disease = () => {
+const Disease = ({ placeholder, data }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const clearInput = () => {
+    // searchTerm([]);
+    setSearchTerm("");
+  };
   return (
-    <Grid>
-      <AllWrapped>
-        <Link to='/Antykoncepcjahormonalna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja hormonalna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
+    <>
+      <SearchInputs>
+        <Searchin
+          type='text'
+          placeholder={placeholder}
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+          }}
+        />
 
-      <AllWrapped>
-        <Link to='/Antykoncepcjahormonalna'>
-          <TextWra>
-            <IconWrap />
-            <Title>BALL WRPPPED</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
+        <SearchIcon>
+          {data.length === 0 ? (
+            <SearchIcon1 />
+          ) : (
+            <CloseIcon id='clearBtn' onClick={clearInput} />
+          )}
+        </SearchIcon>
+      </SearchInputs>
 
-      <AllWrapped>
-        <Link to='/Antykoncepcjaawaryjna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja awaryjna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
+      <Grid>
+        {data
+          .filter((val) => {
+            if (searchTerm === "") {
+              return val;
+            } else if (
+              val.title.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            }
+          })
+          .slice(0, 15)
+          .map((value, key) => {
+            return (
+              <AllWrapped>
+                <TextWra>
+                  <IconWrap />
+                  <Title>{value.title}</Title>
 
-      <AllWrapped>
-        <Link to='/Antykoncepcjaawaryjna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja awaryjna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
-
-      <AllWrapped>
-        <Link to='/Antykoncepcjaawaryjna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja awaryjna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
-
-      <AllWrapped>
-        <Link to='/Antykoncepcjaawaryjna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja awaryjna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
-
-      <AllWrapped>
-        <Link to='/Antykoncepcjaawaryjna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja awaryjna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
-
-      <AllWrapped>
-        <Link to='/Antykoncepcjaawaryjna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja awaryjna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
-
-      <AllWrapped>
-        <Link to='/Antykoncepcjaawaryjna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja awaryjna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
-
-      <AllWrapped>
-        <Link to='/Antykoncepcjaawaryjna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja awaryjna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
-
-      <AllWrapped>
-        <Link to='/Antykoncepcjaawaryjna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja awaryjna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
-
-      <AllWrapped>
-        <Link to='/Antykoncepcjaawaryjna'>
-          <TextWra>
-            <IconWrap />
-            <Title>Antykonepcja awaryjna</Title>
-            <IconWrap2 />
-          </TextWra>
-        </Link>
-      </AllWrapped>
-    </Grid>
-
+                  {/* <a
+                    DataItem
+                    rel='noopeneer noreferrer'
+                    href={value.link}
+                    target='_blank'
+                  ></a> */}
+                  <Link to={value.link}>
+                    <IconWrap2 />
+                  </Link>
+                </TextWra>
+              </AllWrapped>
+            );
+          })}
+      </Grid>
+    </>
   );
 };
 

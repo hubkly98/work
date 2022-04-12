@@ -8,7 +8,8 @@ import Specialists from './components/pages/Specialists/Specjalists';
 import { LoginForm } from "./auth/LoginForm";
 import {SignupForm} from './auth/SignupForm';
 import { Footer, Navbar } from "./components";
-import Knowledge from './components/pages/Knowledge/Diseases/Diseases';
+import Knowledge from './components/pages/Knowledge/Diseases/Knowledge';
+import Antykoncepcjahormonalna from "./components/pages/Knowledge/Diseases/Antykoncepcjahormonalna/Antykoncepcjahormonalna";
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +22,9 @@ function App() {
         <Route path='/login' element={<LoginForm />} />
         <Route path='/sign-up' element={<SignupForm />} />
         <Route path='/knowledge' element={<Knowledge/>} />
+        
+        <Route path='/hormonalna' element={<Antykoncepcjahormonalna/>} />
+
       </Routes>
       <Footer/>
     </BrowserRouter>
