@@ -8,6 +8,7 @@ import Specialists from './components/pages/Specialists/Specjalists';
 import { LoginForm } from "./auth/LoginForm";
 import {SignupForm} from './auth/SignupForm';
 import { Footer, Navbar } from "./components";
+import Knowledge from './components/pages/Knowledge/Diseases/Diseases';
 function App() {
   return (
     <BrowserRouter>
@@ -19,7 +20,7 @@ function App() {
         <Route path='/specjalists' element={<Specialists />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='/sign-up' element={<SignupForm />} />
-
+        <Route path='/knowledge' element={<Knowledge/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>
