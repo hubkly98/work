@@ -1,4 +1,7 @@
-import { Pliki, InPut, Main,Text,Text2,Button } from "./SignupForm.styled";
+import { Pliki, InPut, Main, Text, Text2, Button } from "./SignupForm.styled";
+import { getAuth ,updateProfile  } from "firebase/auth";
+import {collection,getDocs,addDoc} from "firebase/firestore";
+import {db} from "../firebase";
 
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,20 +12,54 @@ export const SignupForm = () => {
   const [loading, setLoading] = useState(false);
   const currentUser = useAuth();
 
+  
   const emailRef = useRef();
   const passwordRef = useRef();
   const nameRef = useRef();
+  
+  const userCollectionRef = collection(db, "users");
 
+  
+  
+  
+  
+  
   async function handleSignUp() {
     try {
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value,nameRef.current.value);
-    } catch {
+      await signup(
+        emailRef.current.value,
+        passwordRef.current.value,
+        nameRef.current.value
+        );
+        const auth = getAuth();
+        const user = auth.currentUser;
+        
+        await updateProfile(user, {
+          displayName: "Jane Q. User"
+        })
+        
+        const { uid, displayName,email } = user
+        
+        console.log(uid,email, displayName);
+        
+        
+        await addDoc(userCollectionRef,{displayName,email,uid,isDoctor:true}); //tworzenie kolekcji userów
+
+        const currentUserRef = collection(db, "users").doc(currentUser.uid);
+        
+
+        await addDoc(currentUserRef,{displayName,email,uid,isDoctor:true}); 
+        
+        
+      } catch {
       alert("Konto już istnieje");
     }
     setLoading(false);
   }
 
+  
+  
   async function handleLogOut() {
     setLoading(true);
     try {
@@ -33,10 +70,7 @@ export const SignupForm = () => {
     setLoading(false);
   }
 
-  async function handleLogin() {
-    setLoading(true);
-    await login(emailRef.current.value, passwordRef.current.value);
-  }
+ 
 
   return (
     <Main>
@@ -44,23 +78,24 @@ export const SignupForm = () => {
 
       <Pliki>
         <Text>Rejestracja</Text>
-        <InPut ref={emailRef} placeholder='Email' type="text" />
+        <InPut ref={emailRef} placeholder='Email' type='text' />
         <InPut ref={passwordRef} type='password' placeholder='Password' />
         <InPut ref={nameRef} type='text' placeholder='Name' />
 
-        <Button value="Zarejestruj sie" disabled={loading || currentUser} onClick={handleSignUp}>Zarejestruj sie
-      </Button>
-        
-      {/* DOKONCZ SPAN I LINK DO REJESTRACJI  */}
-        <Text2>Masz już konto? <Link to='/login'>
-         Zaloguj sie
-       </Link></Text2>
-        
+        <Button
+          value='Zarejestruj sie'
+          disabled={loading || currentUser}
+          onClick={handleSignUp}
+        >
+          Zarejestruj sie
+        </Button>
+
+        {/* DOKONCZ SPAN I LINK DO REJESTRACJI  */}
+        <Text2>
+          Masz już konto? <Link to='/login'>Zaloguj sie</Link>
+        </Text2>
       </Pliki>
 
-     
-
-     
       <button disabled={loading || !currentUser} onClick={handleLogOut}>
         Wyloguj
       </button>

@@ -2,42 +2,88 @@
   {
     "title": "Antykoncepcja hormonalna",
     "description": "Dziala ona tak skutecznie, ze pomaga",
-    "link": "/hormonalna"
+    "link": "/hormonalna",
+    "img" : "../../../../images/fotka1.svg"
   },
 
   {
     "title": "Antykoncepcja awaryjna",
     "description": " Pomaga w naglych przypadkach",
-    "link": "Antykoncepcja_awaryjna"
+    "link": "/awaryjna"
   },
   {
-    "title": "aaa",
+    "title": "Alergia",
     "description": " Pomaga w naglych przypadkach",
-    "link": "AAA"
+    "link": "/alergia"
   },
   {
-    "title": "bbb",
+    "title": "Astma",
     "description": " Pomaga w naglych przypadkach",
-    "link": "Antykoncepcja_awaryjna"
+    "link": "/astma"
   },
   {
-    "title": "Antykoncepcja awaryjna",
+    "title": "Bezsennosc",
     "description": " Pomaga w naglych przypadkach",
-    "link": "Antykoncepcja_awaryjna"
+    "link": "/bezsennosc"
   },
   {
-    "title": "Antykoncepcja awaryjna",
+    "title": "Bol ucha",
     "description": " Pomaga w naglych przypadkach",
-    "link": "Antykoncepcja_awaryjna"
+    "link": "/ucho"
   },
   {
-    "title": "Antykoncepcja awaryjna",
+    "title": "Cukrzyca ",
     "description": " Pomaga w naglych przypadkach",
-    "link": "Antykoncepcja_awaryjna"
+    "link": "/cukrzyca"
   },
   {
-    "title": "Antykoncepcja awaryjna",
+    "title": "Depresja",
     "description": " Pomaga w naglych przypadkach",
-    "link": "Antykoncepcja_awaryjna"
+    "link": "/depresja"
+  },
+  {
+    "title": "Grypa",
+    "description": " Pomaga w naglych przypadkach",
+    "link": "/grypa"
+  },
+  {
+    "title": "Grzybicze zapalenie pochwy",
+    "description": " Pomaga w naglych przypadkach",
+    "link": "/grzybiczezapaleniepochwy"
+  },
+  {
+    "title": "Inhalacje",
+    "description": " Pomaga w naglych przypadkach",
+    "link": "/inhalacje"
+  },
+  {
+    "title": "Luszczyca",
+    "description": " Pomaga w naglych przypadkach",
+    "link": "/luszczyca"
+  },
+  {
+    "title": "Migrena",
+    "description": " Pomaga w naglych przypadkach",
+    "link": "/migrena"
+  },
+  {
+    "title": "Niedoczynnosc tarczycy",
+    "description": " Pomaga w naglych przypadkach",
+    "link": "/niedoczynnosctarczycy"
+  },
+  {
+    "title": "Opryszczka",
+    "description": " Pomaga w naglych przypadkach",
+    "link": "/opryszczka"
+  },
+  {
+    "title": "Tradzik",
+    "description": " Pomaga w naglych przypadkach",
+    "link": "/tradzik"
+  },
+  {
+    "title": "Otylosc",
+    "description": " Pomaga w naglych przypadkach",
+    "link": "/otylosc"
   }
 ]

@@ -7,7 +7,7 @@ import BookData from "./Data.json";
 const Knowledge = () => {
   return (
 
-      <Disease placeholder='Wpisz nazwe leku...' data={BookData} />
+      <Disease placeholder='Wpisz dolegliwosc...' data={BookData} />
 
   );
 };

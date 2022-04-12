@@ -15,6 +15,8 @@ import {
   SearchInputs,
   Searchin,
   SearchIcon,
+  L,
+  Img,
 } from "./Diseases.styled";
 
 // import SearchBar from "../../SearchBar/SearchBar";
@@ -58,12 +60,15 @@ const Disease = ({ placeholder, data }) => {
               return val;
             }
           })
-          .slice(0, 15)
+          .slice(0, 20)
           .map((value, key) => {
             return (
               <AllWrapped>
                 <TextWra>
-                  <IconWrap />
+                  
+                  <Img src={value.img} alt="..." />
+
+                  {console.log(value.img)}
                   <Title>{value.title}</Title>
 
                   {/* <a

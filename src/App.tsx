@@ -9,7 +9,7 @@ import { LoginForm } from "./auth/LoginForm";
 import {SignupForm} from './auth/SignupForm';
 import { Footer, Navbar } from "./components";
 import Knowledge from './components/pages/Knowledge/Diseases/Knowledge';
-import Antykoncepcjahormonalna from "./components/pages/Knowledge/Diseases/Antykoncepcjahormonalna/Antykoncepcjahormonalna";
+import Antykoncepcjahormonalna from "./components/pages/Knowledge/Diseases/Section/Antykoncepcjahormonalna/Antykoncepcjahormonalna";
 function App() {
   return (
     <BrowserRouter>
