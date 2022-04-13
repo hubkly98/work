@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SearchIcon1 from "@material-ui/icons/Search";
+import SearchIcon1 from "@mui/icons-material/Search";
 // import CloseIcon from "@material-ui/icons/Close";
 import CloseIcon from '@mui/icons-material/Close';
 import {

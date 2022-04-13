@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import AccessAlarmIcon from "@material-ui/icons/AccessAlarm";
+import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 
-import CheckIcon from "@material-ui/icons/Check";
-
+// import CheckIcon from "@material-ui/icons/Check";
+import CheckIcon from '@mui/icons-material/Check';
 import fotkasadasd from "../../../../images/anty_hormonalna.png"
 
 export const Grid = styled.div`
