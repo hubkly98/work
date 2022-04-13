@@ -18,6 +18,7 @@ export const Nav = styled.nav`
 export const NavbarContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 80px;
 
   ${Container}
@@ -57,7 +58,8 @@ export const NavMenu = styled.ul`
   align-items: center;
   list-style: none;
   text-align: center;
-  
+  margin: 0;
+
   /* Hide menu */
   @media screen and (max-width: 960px) {
     display: flex;
@@ -72,7 +74,6 @@ export const NavMenu = styled.ul`
     background: #008080;
     border-top-right-radius: 10%;
     border-bottom-right-radius: 10%;
-
   }
 `;
 
@@ -81,7 +82,7 @@ export const NavItem = styled.li`
   border-bottom: 2px solid transparent;
 
   &:hover {
-    border-bottom: 2px solid #CC0033; // mały podkreślnik przy wyborze menu
+    border-bottom: 2px solid #cc0033; // mały podkreślnik przy wyborze menu
   }
 
   @media screen and (max-width: 960px) {

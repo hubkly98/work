@@ -18,8 +18,9 @@ export const SendForm = () => {
   const kiedyLekRef = useRef();
   const przebytaChorobaRef = useRef();
 
-  const userCollectionRef = collection(db, "users");
-  const wizytaCollectionRef = collection(db, "wizyty");
+  // const userCollectionRef = collection(db, "users");
+  // const wizytaCollectionRef = collection(db, "wizyty");
+  // console.log(userCollectionRef, wizytaCollectionRef);
 
   // const docRef = doc(db,"users", currentUser.uid);
   // const currentUserRef = collection(db, "users").doc(currentUser.uid).collection("wizyty");
@@ -95,15 +96,21 @@ export const SendForm = () => {
   //        alert("Cos poszlo nie tak");
   //      }
   //    }
-    
-  async function handleForm(){
-   await setDoc(doc(db,"users",currentUser.uid, "wizyty","wizyty"),{
-      id:currentUser.uid,
-      objawy: "asd",
-        jakiLek:"aasd",
-        kiedyLek:"asd",
-        przebytaChoroba:"asd" });
-  }
+
+  const handleForm = async () => {
+    try {
+      await addDoc(collection(db, "users", currentUser.uid, "wizyty"), {
+        id: currentUser.uid,
+        objawy: "asd",
+        jakiLek: "test",
+        kiedyLek: "test",
+        przebytaChoroba: "asd",
+      });
+    } catch (err) {
+      alert(err);
+    }
+  };
+
   // async function handleForm(){
 
   //   await userCollectionRef.doc(currentUser.uid).collection("wizyty").add({
@@ -134,18 +141,10 @@ export const SendForm = () => {
   //BODY PAGE
 
   const validation = Yup.object({
-    objawy: Yup.string()
-      .min(1, "Za mało znaków")
-      .required("To pole jest wymagane"),
-    jakiLek: Yup.string()
-      .min(1, "Za mało znaków")
-      .required("To pole jest wymagane"),
-    kiedyLek: Yup.string()
-      .min(1, "Za mało znaków")
-      .required("To pole jest wymagane"),
-    przebytaChoroba: Yup.string()
-      .min(1, "Za mało znaków")
-      .required("To pole jest wymagane"),
+    objawy: Yup.string().min(1, "Za mało znaków").required("To pole jest wymagane"),
+    jakiLek: Yup.string().min(1, "Za mało znaków").required("To pole jest wymagane"),
+    kiedyLek: Yup.string().min(1, "Za mało znaków").required("To pole jest wymagane"),
+    przebytaChoroba: Yup.string().min(1, "Za mało znaków").required("To pole jest wymagane"),
   });
   return (
     <Formik
@@ -162,30 +161,10 @@ export const SendForm = () => {
           <h1 className='my-4 font-weight-bold-display-4'>Formularz</h1>
           {/* {console.log(formik.values)} */}
           <Form>
-            <TextField
-              ref={objawyRef}
-              label='Objawy'
-              name='objawy'
-              type='text'
-            />
-            <TextField
-              ref={jakiLekRef}
-              label='Jaki potrzebujesz lek / Nie wiem'
-              name='jakiLek'
-              type='text'
-            />
-            <TextField
-              ref={kiedyLekRef}
-              label='Kiedy brałeś leki i jakie'
-              name='kiedyLek'
-              type='text'
-            />
-            <TextField
-              ref={przebytaChorobaRef}
-              label='Przebyte choroby'
-              name='przebytaChoroba'
-              type='text'
-            />
+            <TextField ref={objawyRef} label='Objawy' name='objawy' type='text' />
+            <TextField ref={jakiLekRef} label='Jaki potrzebujesz lek / Nie wiem' name='jakiLek' type='text' />
+            <TextField ref={kiedyLekRef} label='Kiedy brałeś leki i jakie' name='kiedyLek' type='text' />
+            <TextField ref={przebytaChorobaRef} label='Przebyte choroby' name='przebytaChoroba' type='text' />
             <button onClick={handleForm} className='btn btn-dark mt-3'>
               Wyslij
             </button>

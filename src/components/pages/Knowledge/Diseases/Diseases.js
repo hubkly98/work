@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchIcon1 from "@mui/icons-material/Search";
 // import CloseIcon from "@material-ui/icons/Close";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 import {
   DiseasSection,
   DiseasContainer,
@@ -18,6 +18,7 @@ import {
   L,
   Img,
 } from "./Diseases.styled";
+import imgForm from "../../../../images/checklist.png";
 
 // import SearchBar from "../../SearchBar/SearchBar";
 // import { NavLinks } from "../../Navbar/Navbar.styled";
@@ -41,11 +42,7 @@ const Disease = ({ placeholder, data }) => {
         />
 
         <SearchIcon>
-          {data.length === 0 ? (
-            <SearchIcon1 />
-          ) : (
-            <CloseIcon id='clearBtn' onClick={clearInput} />
-          )}
+          {data.length === 0 ? <SearchIcon1 /> : <CloseIcon id='clearBtn' onClick={clearInput} />}
         </SearchIcon>
       </SearchInputs>
 
@@ -54,21 +51,19 @@ const Disease = ({ placeholder, data }) => {
           .filter((val) => {
             if (searchTerm === "") {
               return val;
-            } else if (
-              val.title.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
+            } else if (val.title.toLowerCase().includes(searchTerm.toLowerCase())) {
               return val;
             }
           })
           .slice(0, 20)
           .map((value, key) => {
+            console.log(value.img);
+            console.log(imgForm);
             return (
               <AllWrapped>
                 <TextWra>
-                  
-                  <Img src={value.img} alt="..." />
+                  <Img src={value.img} alt='' />
 
-                  {console.log(value.img)}
                   <Title>{value.title}</Title>
 
                   {/* <a

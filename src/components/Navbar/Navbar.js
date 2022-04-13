@@ -67,7 +67,7 @@ export default function  Navbar() {
               </NavItem>
 
               <NavItem>
-                <NavLinks to='/specialists'>Kontakt</NavLinks>
+                <NavLinks to='/contact'>Kontakt</NavLinks>
               </NavItem>
 
               <NavItemBtn>

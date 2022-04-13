@@ -117,18 +117,3 @@ export const Img = styled.img`
   max-height: 150px;
   border-radius:50%;
 `;
-// export const Image = {
-//     // lightBg: false,
-//     // primary:false,
-//     // imgStart:'',
-//     // lightTopLine:true,
-//     // buttonLabel:'Get Started',
-//     // lightTextDesc:true,
-//     // description:"Tworzymy stronę specjalnie dla twoich potrzeb",
-//     // headline:'Jesteśmy tutaj dla twojej troski',
-//     // lightText:true,
-//     // topLine:'Margeting Agency',
-//     img: require('../../images/magda.svg').default,
-//     alt:'Image',
-//     // start:''
-//   };

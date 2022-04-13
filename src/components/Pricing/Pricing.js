@@ -3,7 +3,7 @@ import { Button } from "../../globalStyles";
 import { GiCrystalBars } from "react-icons/gi";
 import { GiCutDiamond } from "react-icons/gi";
 import { IconContext } from "react-icons/lib";
-import logo from '../../images/magda.jpg';
+import logo from '../../images/checklist.png';
 
 import {
   PricingSection,

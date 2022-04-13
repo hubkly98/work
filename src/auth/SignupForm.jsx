@@ -47,7 +47,7 @@ export const SignupForm = () => {
       //   uid,
       //   isDoctor: true,
       // }); //tworzenie kolekcji userów
-
+      
       await setDoc(doc(db,"users",uid), {
         displayName,
         email,
@@ -55,7 +55,7 @@ export const SignupForm = () => {
         isDoctor: true,
         }); //tworzenie kolekcji userów
 
-      console.log("ADD DOC",addDoc);
+      console.log("Display Name",displayName);
       // const currentUserRef = collection(db, "users").doc(currentUser.uid).collection("Presciption");
 
       // await addDoc(currentUserRef,{displayName,email,uid,isDoctor:true});
@@ -109,6 +109,10 @@ export const SignupForm = () => {
         <InPut ref={passwordRef} type='password' placeholder='Password' />
         <InPut ref={nameRef} type='text' placeholder='Name' />
 
+        
+     
+
+
         <Button
           value='Zarejestruj sie'
           disabled={loading || currentUser}
@@ -116,6 +120,13 @@ export const SignupForm = () => {
         >
           Zarejestruj sie
         </Button>
+
+
+        <div>
+         <input type="checkbox" id="doctor" name="doctor"  />
+       <label for="doctor">Czy jestes lekarzem? </label>
+        </div>
+
 
         {/* DOKONCZ SPAN I LINK DO REJESTRACJI  */}
         <Text2>
