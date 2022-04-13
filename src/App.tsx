@@ -16,7 +16,7 @@ function App() {
       <Routes>{/*Routes is Switch */}
         <Route path='/' element={<Home />} />
         <Route path='/covid' element={<Covid />} />
-        <Route path='/specjalists' element={<Specialists />} />
+        <Route path='/specialists' element={<Specialists />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='/sign-up' element={<SignupForm />} />
 
