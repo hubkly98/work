@@ -50,9 +50,6 @@ export const SignupForm = () => {
 
       // await addDoc(currentUserRef,{displayName,email,uid,isDoctor:true});
 
-     
-
-
     } catch {
       alert("Konto już istnieje");
     }
