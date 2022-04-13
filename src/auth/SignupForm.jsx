@@ -1,7 +1,9 @@
 import { Pliki, InPut, Main, Text, Text2, Button } from "./SignupForm.styled";
-import { getAuth ,updateProfile  } from "firebase/auth";
-import {collection,getDocs,addDoc} from "firebase/firestore";
-import {db} from "../firebase";
+import { getAuth, updateProfile } from "firebase/auth";
+import { collection, getDocs, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import { doc } from "firebase/firestore";
+import { setDoc } from "firebase/firestore";
 
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -12,18 +14,12 @@ export const SignupForm = () => {
   const [loading, setLoading] = useState(false);
   const currentUser = useAuth();
 
-  
   const emailRef = useRef();
   const passwordRef = useRef();
   const nameRef = useRef();
-  
+
   const userCollectionRef = collection(db, "users");
 
-  
-  
-  
-  
-  
   async function handleSignUp() {
     try {
       setLoading(true);
@@ -31,35 +27,38 @@ export const SignupForm = () => {
         emailRef.current.value,
         passwordRef.current.value,
         nameRef.current.value
-        );
-        const auth = getAuth();
-        const user = auth.currentUser;
-        
-        await updateProfile(user, {
-          displayName: "Jane Q. User"
-        })
-        
-        const { uid, displayName,email } = user
-        
-        console.log(uid,email, displayName);
-        
-        
-        await addDoc(userCollectionRef,{displayName,email,uid,isDoctor:true}); //tworzenie kolekcji userów
+      );
+      const auth = getAuth();
+      const user = auth.currentUser;
 
-        const currentUserRef = collection(db, "users").doc(currentUser.uid);
-        
+      await updateProfile(user, {
+        displayName: "Jane Q. User",
+      });
 
-        await addDoc(currentUserRef,{displayName,email,uid,isDoctor:true}); 
-        
-        
-      } catch {
+      const { uid, displayName, email } = user;
+
+      console.log(uid, email, displayName);
+
+      await addDoc(userCollectionRef, {
+        displayName,
+        email,
+        uid,
+        isDoctor: true,
+      }); //tworzenie kolekcji userów
+
+      // const currentUserRef = collection(db, "users").doc(currentUser.uid).collection("Presciption");
+
+      // await addDoc(currentUserRef,{displayName,email,uid,isDoctor:true});
+
+     
+
+
+    } catch {
       alert("Konto już istnieje");
     }
     setLoading(false);
   }
 
-  
-  
   async function handleLogOut() {
     setLoading(true);
     try {
@@ -69,8 +68,29 @@ export const SignupForm = () => {
     }
     setLoading(false);
   }
+    
 
- 
+  //FUNKCJA DO PODSUMOWANIA FORMULARZA 
+
+  async function handleSubmit() {
+    const wizytaRef = doc(db, "wizyta");
+    setDoc(wizytaRef, {
+      medicin: "apap", // to bedzie z Inputa w Formularzu APAP XD
+      currentUser: "DANY PACJENT ID",// wyciagam z zalogowanego usera
+      dawkowanie: "2", 
+    });
+  
+    const WizytazPacjetemRef = doc(db, "users", "IDLEKARZA", "wizyta", "123");
+    setDoc(WizytazPacjetemRef, {
+      medicin: "apap", // to bedzie z Inputa w Formularzu APAP XD
+      currentUser: "DANY PACJENT ID",// wyciagam z zalogowanego usera
+      dawkowanie: "2", 
+      
+    });
+
+
+  }
+
 
   return (
     <Main>
