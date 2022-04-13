@@ -6,7 +6,7 @@ import { pricingObjOne } from "../../Pricing/DataPricing";
 import { getDocs } from "firebase/firestore";
 import { db, useAuth } from "../../../firebase";
 import { collection } from "firebase/firestore";
-const Home = () => {
+const Home = ({ choosenDoctor, setChoosenDoctor }) => {
   const [users, setUsers] = useState(null);
   const currentUser = useAuth();
   console.log(currentUser);
@@ -30,8 +30,9 @@ const Home = () => {
       <InfoSection {...homeObjOne} />
       <InfoSection {...homeObjTwo} />
 
-      <Pricing {...pricingObjOne} />
-      {/* <InfoSection {...homeObjThree} /> */}
+      <Pricing choosenDoctor={choosenDoctor} setChoosenDoctor={setChoosenDoctor} {...pricingObjOne}  />
+     
+     
       <InfoSection {...homeObjFour} />
     </>
   );

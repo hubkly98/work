@@ -6,13 +6,13 @@ import { SendForm } from "./SendForm";
 import "./Specialists.css";
 
 
-const Specialists = () => {
+const Specialists = ({ choosenDoctor, setChoosenDoctor }) => {
   return (
     <>
       <div className='container mt-3'>
         <div className='row'>
           <div className='col-md-5'>
-            <SendForm />
+            <SendForm choosenDoctor={choosenDoctor} setChoosenDoctor={setChoosenDoctor} />
           </div>
           <div className='col-md-7 my-auto'>
             <img className='img-fluid w-80 ' src={imgForm} alt='...' />

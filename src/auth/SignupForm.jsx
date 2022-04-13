@@ -122,10 +122,6 @@ export const SignupForm = () => {
         <InPut ref={passwordRef} type='password' placeholder='Password' />
         <InPut ref={nameRef} type='text' placeholder='Name' />
 
-        
-     
-
-
         <Button
           value='Zarejestruj sie'
           disabled={loading || currentUser}
@@ -133,7 +129,6 @@ export const SignupForm = () => {
         >
           Zarejestruj sie
         </Button>
-
 
         <div>
 
