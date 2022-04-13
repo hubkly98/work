@@ -21,7 +21,7 @@ export const SignupForm = () => {
   const userCollectionRef = collection(db, "users");
 
   async function handleSignUp() {
-    try {
+    // try {
       setLoading(true);
       await signup(
         emailRef.current.value,
@@ -31,28 +31,38 @@ export const SignupForm = () => {
       const auth = getAuth();
       const user = auth.currentUser;
 
-      await updateProfile(user, {
-        displayName: "Jane Q. User",
-      });
+      // await updateProfile(user, {
+      //   // displayName: "Jane Q. User",
+      //   displayName: nameRef.current.value,
+
+      // });
 
       const { uid, displayName, email } = user;
-
+      
       console.log(uid, email, displayName);
+        
+      // await addDoc(userCollectionRef, {
+      //   displayName,
+      //   email,
+      //   uid,
+      //   isDoctor: true,
+      // }); //tworzenie kolekcji userów
 
-      await addDoc(userCollectionRef, {
+      await setDoc(doc(db,"users",uid), {
         displayName,
         email,
         uid,
         isDoctor: true,
-      }); //tworzenie kolekcji userów
+        }); //tworzenie kolekcji userów
 
+      console.log("ADD DOC",addDoc);
       // const currentUserRef = collection(db, "users").doc(currentUser.uid).collection("Presciption");
 
       // await addDoc(currentUserRef,{displayName,email,uid,isDoctor:true});
 
-    } catch {
-      alert("Konto już istnieje");
-    }
+    // } catch {
+    //   alert("Konto już istnieje");
+    // }
     setLoading(false);
   }
 
