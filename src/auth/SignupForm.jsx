@@ -17,6 +17,8 @@ export const SignupForm = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const nameRef = useRef();
+  const doktorRef = useRef();
+
 
   const userCollectionRef = collection(db, "users");
 
@@ -26,35 +28,46 @@ export const SignupForm = () => {
       await signup(
         emailRef.current.value,
         passwordRef.current.value,
-        nameRef.current.value
+        nameRef.current.value,
+        doktorRef.current.checked
+
       );
       const auth = getAuth();
       const user = auth.currentUser;
 
-      // await updateProfile(user, {
-      //   // displayName: "Jane Q. User",
-      //   displayName: nameRef.current.value,
+      await updateProfile(user, {
+        // displayName: "Jane Q. User",
+        displayName: nameRef.current.value,
 
-      // });
+      });
 
       const { uid, displayName, email } = user;
       
       console.log(uid, email, displayName);
-        
+
+       console.log(doktorRef.current.checked); 
       // await addDoc(userCollectionRef, {
       //   displayName,
       //   email,
       //   uid,
       //   isDoctor: true,
       // }); //tworzenie kolekcji userów
-      
+      if(!doktorRef.current.checked ){
       await setDoc(doc(db,"users",uid), {
         displayName,
         email,
         uid,
-        isDoctor: true,
+        // isDoctor: true,
         }); //tworzenie kolekcji userów
-
+      }
+      else{
+        await setDoc(doc(db,"doctors",uid), {
+          displayName,
+          email,
+          uid,
+          // isDoctor: true,
+          }); //tworzenie kolekcji userów
+      }
       console.log("Display Name",displayName);
       // const currentUserRef = collection(db, "users").doc(currentUser.uid).collection("Presciption");
 
@@ -123,7 +136,8 @@ export const SignupForm = () => {
 
 
         <div>
-         <input type="checkbox" id="doctor" name="doctor"  />
+
+         <input ref={doktorRef} type="checkbox" id="doctor" name="doctor"  />
        <label for="doctor">Czy jestes lekarzem? </label>
         </div>
 

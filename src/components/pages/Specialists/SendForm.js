@@ -153,6 +153,7 @@ export const SendForm = () => {
         jakiLek: "", // jaki lek(jeśli nie wiem wpisz "wybiera lekarz")
         kiedyLek: "", // kiedy braleś leki i jakie
         przebytaChoroba: "", // ostatnio przebyta choroba(kiedy)
+        jestemLekarzem: false,
       }}
       validationSchema={validation}
     >
