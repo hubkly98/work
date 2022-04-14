@@ -1,14 +1,14 @@
+import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Pliki, InPut, Main, Text, Text2, Button } from "./SignupForm.styled";
 import { getAuth, updateProfile } from "firebase/auth";
-import { collection, getDocs, addDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { doc } from "firebase/firestore";
 import { setDoc } from "firebase/firestore";
 
-import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+// import { collection  } from "firebase/firestore";
 
-import { signup, useAuth, logout, login } from "../firebase";
+import { signup, useAuth, logout } from "../firebase";
 
 export const SignupForm = () => {
   const [loading, setLoading] = useState(false);
@@ -20,7 +20,6 @@ export const SignupForm = () => {
   const doktorRef = useRef();
 
 
-  const userCollectionRef = collection(db, "users");
 
   async function handleSignUp() {
     // try {

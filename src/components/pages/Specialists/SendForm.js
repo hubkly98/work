@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
-import { TextField } from "./TextField";
 import { useAuth } from "../../../firebase";
-import { setDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import { doc, addDoc } from "firebase/firestore";
-
-import { collection, query, where, getDocs } from "firebase/firestore";
-
-import { Text } from "../../../auth/SignupForm.styled";
+import {  addDoc } from "firebase/firestore";
+import { collection } from "firebase/firestore";
 import styled from "styled-components";
+
+
+// import { TextField } from "./TextField";
+// import { Text } from "../../../auth/SignupForm.styled";
+
 
 export const SendForm = ({ choosenDoctor, setChoosenDoctor }) => {
   //FIREBASE

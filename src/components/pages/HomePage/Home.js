@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { homeObjOne, homeObjTwo, homeObjFour } from "./Data";
-import { InfoSection, Pricing } from "../..";
-// import { Pricing } from '../components/Pricing/Pricing'
-import { pricingObjOne } from "../../Pricing/DataPricing";
+import { InfoSection} from "../..";
+import Doctor from "../Doctor/Doctor";
+import { doctorObjOne,doctorObjTwo, doctorObjThree } from "../Doctor/DataDoctor";
 import { getDocs } from "firebase/firestore";
 import { db, useAuth } from "../../../firebase";
 import { collection } from "firebase/firestore";
@@ -30,7 +30,7 @@ const Home = ({ choosenDoctor, setChoosenDoctor }) => {
       <InfoSection {...homeObjOne} />
       <InfoSection {...homeObjTwo} />
 
-      <Pricing choosenDoctor={choosenDoctor} setChoosenDoctor={setChoosenDoctor} {...pricingObjOne}  />
+      <Doctor choosenDoctor={choosenDoctor} setChoosenDoctor={setChoosenDoctor} {...doctorObjOne} {...doctorObjTwo} {...doctorObjThree} />
      
      
       <InfoSection {...homeObjFour} />

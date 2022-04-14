@@ -63,11 +63,15 @@ export default function  Navbar() {
               </NavItem>
 
               <NavItem>
+                <NavLinks to='/wizyty'>Wizyty</NavLinks>
+              </NavItem>
+
+              <NavItem>
                 <NavLinks to='/specialists'>Specjalisci</NavLinks>
               </NavItem>
 
               <NavItem>
-                <NavLinks to='/contact'>Kontakt</NavLinks>
+                <NavLinks to='/contact'>WIzyty pacjentow</NavLinks>
               </NavItem>
 
               <NavItemBtn>

@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
 import imgForm from "../../../images/checklist.png";
 import { SendForm } from "./SendForm";
 import "./Specialists.css";

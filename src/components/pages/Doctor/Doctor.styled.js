@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const PricingSection = styled.div`
+export const DoctorSection = styled.div`
   padding: 100px 0 160px;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@ export const PricingSection = styled.div`
   background: #224558;
 `;
 
-export const PricingWrapper = styled.div`
+export const DoctorWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,13 +22,13 @@ export const PricingWrapper = styled.div`
   }
 `;
 
-export const PricingHeading = styled.h1`
+export const DoctorHeading = styled.h1`
   color: #fff;
   font-size: 48px;
   margin-bottom: 24px;
 `;
 
-export const PricingContainer = styled.div`
+export const DoctorContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +41,7 @@ export const PricingContainer = styled.div`
   }
 `;
 
-export const PricingCard = styled(Link)`
+export const DoctorCard = styled(Link)`
   background: 'white';
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.2);
   width: 280px;
@@ -64,7 +64,7 @@ export const PricingCard = styled(Link)`
   }
 `;
 
-export const PricingCardInfo = styled.div`
+export const DoctorCardInfo = styled.div`
   display: flex;
   flex-direction: column;
   height: 500px;
@@ -74,22 +74,19 @@ export const PricingCardInfo = styled.div`
 `;
 
 
-export const PricingCardPlan = styled.h3`
-  margin-bottom: 5px;
+export const DoctorCardPlan = styled.h3`
+  margin-bottom: 3rem;
   font-size: 24px;
   text-align:center;
   `;
 
-export const PricingCardCost = styled.h4`
-  font-size: 40px;
-  `;
 
-export const PricingCardLength = styled.p`
+export const DoctorCardDescription = styled.p`
   font-size: 14px;
   margin-bottom: 24px;
   `;
 
-export const PricingCardFeatures = styled.ul`
+export const DoctorCardSpecializations = styled.ul`
   margin: 16px 0 32px;
   list-style: none;
   display: flex;
@@ -98,11 +95,11 @@ export const PricingCardFeatures = styled.ul`
   color: #a9b3c1;
   `;
 
-export const PricingCardFeature = styled.li`
+export const DoctorCardSpecialization = styled.li`
   margin-bottom: 10px;
   `;
 
-  export const PricingCardIcon = styled.div`
+  export const DoctorCardIcon = styled.div`
     margin: 4px 12px 12px 12px;
     
 
