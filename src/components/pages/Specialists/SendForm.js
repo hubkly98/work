@@ -7,7 +7,8 @@ import { doc, addDoc } from "firebase/firestore";
 
 import { collection, query, where, getDocs } from "firebase/firestore";
 
-import { InPut } from "../../../auth/SignupForm.styled";
+import { Text } from "../../../auth/SignupForm.styled";
+import styled from "styled-components";
 
 export const SendForm = ({ choosenDoctor, setChoosenDoctor }) => {
   //FIREBASE
@@ -61,8 +62,8 @@ export const SendForm = ({ choosenDoctor, setChoosenDoctor }) => {
     <div>
       <h1 className='my-4 font-weight-bold-display-4'>Formularz</h1>
       {/* {console.log(formik.values)} */}
-      <form  onSubmit={(e)=>handleForm(e)}>
-        <input ref={objawyRef} label='Objawy' name='objawy' type='text' />
+      <form onSubmit={(e) => handleForm(e)}>
+        <InPut ref={objawyRef} label='Objawy' name='objawy' type='text' />
         <InPut
           ref={jakiLekRef}
           label='Jaki potrzebujesz lek / Nie wiem'
@@ -81,10 +82,28 @@ export const SendForm = ({ choosenDoctor, setChoosenDoctor }) => {
           name='przebytaChoroba'
           type='text'
         />
-        <button type="submit" onClick={handleForm} className='btn btn-dark mt-3'>
+        <button
+          type='submit'
+          onClick={handleForm}
+          className='btn btn-dark mt-4'
+        >
           Wyslij
         </button>
       </form>
     </div>
   );
 };
+
+export const InPut = styled.input`
+  font-size: 20px;
+  /* border-bottom: 2px solid #adadad; */
+  position: relative;
+  margin: 10px 0 10px 10px;
+  color: #333;
+  border:bold;
+  width: 100%;
+  outline: none;
+  /* background: none; */
+  padding: 0 5px;
+  height: 40px;
+`;

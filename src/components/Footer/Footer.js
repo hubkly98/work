@@ -14,7 +14,7 @@ const Footer = () => {
       <FooterSubscription>
         <FooterSubHeading>
           
-          Join our exclusive membership to receive the latest news and trends
+          Stopka na potrzeby stronki 
         </FooterSubHeading>
         <FooterSubText>You can usubscribe at any time.</FooterSubText>
         <Form>

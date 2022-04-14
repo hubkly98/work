@@ -1,35 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SearchIcon1 from "@mui/icons-material/Search";
-// import CloseIcon from "@material-ui/icons/Close";
-import CloseIcon from "@mui/icons-material/Close";
 import {
-  DiseasSection,
-  DiseasContainer,
   AllWrapped,
   TextWra,
-  IconWrap,
   IconWrap2,
   Title,
   Grid,
   SearchInputs,
   Searchin,
-  SearchIcon,
-  L,
   Img,
 } from "./Diseases.styled";
-import imgForm from "../../../../images/checklist.png";
-
-// import SearchBar from "../../SearchBar/SearchBar";
-// import { NavLinks } from "../../Navbar/Navbar.styled";
+import imgForm from "../../../../images/anty_hormonalna.png";
 
 const Disease = ({ placeholder, data }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const clearInput = () => {
-    // searchTerm([]);
-    setSearchTerm("");
-  };
   return (
     <>
       <SearchInputs>
@@ -40,10 +25,6 @@ const Disease = ({ placeholder, data }) => {
             setSearchTerm(event.target.value);
           }}
         />
-
-        <SearchIcon>
-          {data.length === 0 ? <SearchIcon1 /> : <CloseIcon id='clearBtn' onClick={clearInput} />}
-        </SearchIcon>
       </SearchInputs>
 
       <Grid>
@@ -51,7 +32,9 @@ const Disease = ({ placeholder, data }) => {
           .filter((val) => {
             if (searchTerm === "") {
               return val;
-            } else if (val.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+            } else if (
+              val.title.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
               return val;
             }
           })
@@ -65,13 +48,6 @@ const Disease = ({ placeholder, data }) => {
                   <Img src={value.img} alt='' />
 
                   <Title>{value.title}</Title>
-
-                  {/* <a
-                    DataItem
-                    rel='noopeneer noreferrer'
-                    href={value.link}
-                    target='_blank'
-                  ></a> */}
                   <Link to={value.link}>
                     <IconWrap2 />
                   </Link>

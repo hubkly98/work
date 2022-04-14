@@ -27,7 +27,6 @@ function App() {
         <Route path='/login' element={<LoginForm />} />
         <Route path='/sign-up' element={<SignupForm />} />
         <Route path='/knowledge' element={<Knowledge />} />
-
         <Route path='/hormonalna' element={<Antykoncepcjahormonalna />} />
       </Routes>
       <Footer />
