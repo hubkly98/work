@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib"; //import for set react-icon color to white
 //import { NavLink } from "react-router-dom";
+import { useAuth } from "../../firebase";
 import { Button } from "../../globalStyles";
+import styled from "styled-components";
 import {
   Nav,
   NavbarContainer,
@@ -16,23 +18,19 @@ import {
   NavBtnLink,
 } from "./Navbar.styled";
 
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+
 export default function  Navbar() {
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
 
+  const currentUser = useAuth();   // useAuth() returns the current user
+
+  // const email = currentUser.email;
+    // const {email} = currentUser; //same tylko z destrukturyzacją
+
+
+  
   const handleClick = () => setClick(!click);
-
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-  useEffect(() => {
-    showButton();
-  }, []);
-  window.addEventListener("resize", showButton);
 
   return (
     <>
@@ -63,7 +61,7 @@ export default function  Navbar() {
               </NavItem>
 
               <NavItem>
-                <NavLinks to='/specialists'>Wizyty</NavLinks>
+                <NavLinks to='/doctor'>Wizyty</NavLinks>
               </NavItem>
 
               <NavItem>
@@ -71,23 +69,30 @@ export default function  Navbar() {
               </NavItem>
 
               <NavItem>
-                <NavLinks to='/visitPatient'>WIzyty pacjentow</NavLinks>
+                {
+                  (currentUser === "" ||currentUser || currentUser) && <NavLinks to='/visitPatient'>Wizyty pacjentow</NavLinks>
+                }
+              </NavItem>
+              <NavItem>
+                {
+                  (currentUser !== "" ||currentUser || currentUser) && <NavLinks to='/odpowiedzi'>odpowiedzi od Lekarza</NavLinks>
+                }
               </NavItem>
 
               <NavItemBtn>
-                {button ? (
+                {
+                  currentUser ?(
+                    <UserDiv><p>{currentUser.displayName}</p>
+                    {/* {tu ikonka logout} on click logout tak jak tam masz w tym logowaniu */}
+                    </UserDiv>
+                  ):
+                  (
                   <NavBtnLink to='/login'>
                     <Button fontBig primary>Zaloguj sie</Button>
                   </NavBtnLink>
-                ) : (
-                  <NavBtnLink to='/login'>
-                    <Button  primary> Zaloguj sie</Button>
-                   
-                  </NavBtnLink>
-                )}
+                  )
+                }
               </NavItemBtn>
-
-
             </NavMenu>
           </NavbarContainer>
         </Nav>
@@ -96,3 +101,9 @@ export default function  Navbar() {
   );
 };
 
+const UserDiv = styled.div`
+  color: red;
+  padding: 5px 20px;
+  border: 1px solid white;
+  border-radius: 20px;
+`

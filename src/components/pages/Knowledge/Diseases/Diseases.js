@@ -46,7 +46,6 @@ const Disease = ({ placeholder, data }) => {
               <AllWrapped>
                 <TextWra>
                   <Img src={value.img} alt='' />
-
                   <Title>{value.title}</Title>
                   <Link to={value.link} state={{value}}>
                     <IconWrap2 />
