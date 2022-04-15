@@ -112,5 +112,5 @@ export const Img = styled.img`
   vertical-align: middle;
   display: inline-block;
   max-height: 150px;
-  border-radius:50%;
+  border-radius:20%;
 `;

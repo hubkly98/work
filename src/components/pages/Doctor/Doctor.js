@@ -19,6 +19,23 @@ import {
   Img,
 } from "./Doctor.styled";
 
+// import {  doctorName,
+//   doctorDescription,
+//   doctorSpecialization,
+//   doctorName2,
+//   doctorDescription2,
+//   doctorSpecialization2,
+//   doctorName3,
+//   doctorDescription3,
+//   doctorSpecialization3,
+//   setChoosenDoctor} from "./Doctor.js"
+// import doctorObjOne from "./DataDoctor";
+
+
+
+
+// export default doctorObjOne;
+
 const Doctor = ({
   doctorName,
   doctorDescription,

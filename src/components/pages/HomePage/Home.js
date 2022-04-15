@@ -6,6 +6,7 @@ import { doctorObjOne,doctorObjTwo, doctorObjThree } from "../Doctor/DataDoctor"
 import { getDocs } from "firebase/firestore";
 import { db, useAuth } from "../../../firebase";
 import { collection } from "firebase/firestore";
+import Knowledge from "../Knowledge/Diseases/Knowledge";
 const Home = ({ choosenDoctor, setChoosenDoctor }) => {
   const [users, setUsers] = useState(null);
   const currentUser = useAuth();
@@ -28,12 +29,13 @@ const Home = ({ choosenDoctor, setChoosenDoctor }) => {
         <ul>{!!users && users.map((item) => <li key={item.id}>{item.objawy}</li>)}</ul>
       </div>
       <InfoSection {...homeObjOne} />
-      <InfoSection {...homeObjTwo} />
+      {/* <InfoSection {...homeObjTwo} /> */}
 
       <Doctor choosenDoctor={choosenDoctor} setChoosenDoctor={setChoosenDoctor} {...doctorObjOne} {...doctorObjTwo} {...doctorObjThree} />
      
      
       <InfoSection {...homeObjFour} />
+      <Knowledge/>
     </>
   );
 };

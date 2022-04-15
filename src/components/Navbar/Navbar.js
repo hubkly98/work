@@ -63,7 +63,7 @@ export default function  Navbar() {
               </NavItem>
 
               <NavItem>
-                <NavLinks to='/wizyty'>Wizyty</NavLinks>
+                <NavLinks to='/specialists'>Wizyty</NavLinks>
               </NavItem>
 
               <NavItem>
@@ -71,7 +71,7 @@ export default function  Navbar() {
               </NavItem>
 
               <NavItem>
-                <NavLinks to='/contact'>WIzyty pacjentow</NavLinks>
+                <NavLinks to='/visitPatient'>WIzyty pacjentow</NavLinks>
               </NavItem>
 
               <NavItemBtn>

@@ -1,5 +1,5 @@
 
-export const doctorObjOne = {
+ export const doctorObjOne = {
   
   doctorName: "Hubert Klys",
   doctorDescription: "Opis doktorka co umie i jakie ma osiągnięcia w zakresie medycyny",
@@ -19,3 +19,5 @@ export const doctorObjThree = {
   doctorDescription3: "Opis doktorka co umie i jakie ma osiągnięcia w zakresie medycyny",
   doctorSpecialization3: "Lekarz Ogólny",
 };
+
+// export default doctorObjOne;

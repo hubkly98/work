@@ -19,7 +19,7 @@
     buttonLabel:'Umow sie na wizyte',
     img: require('../../../../../images/fotka2.svg').default,
     alt:'Image',
-    description:"Najczęstszym powodem wizyty w gabinecie ginekologicznym jest chęć otrzymania recepty na antykoncepcję hormonalną. Oczywiście musi być to poprzedzone umówieniem terminu oraz oczekiwaniem na wizytę. Niestety czas oczekiwania do tradycyjnych gabinetów jest wydłużony, co dla kobiet stosujących regularną antykoncepcję może być sporym utrudnieniem. Z tego też powodu coraz większym zainteresowaniem cieszą się rozwiązania, które pozwalają otrzymać e-receptę na antykoncepcję.",
+    description:"Na alergię cierpi nawet co trzecia osoba na świecie. Alergia to niewłaściwa odpowiedź ze strony układu odpornościowego na obce substancje, które dla zdrowych osób są zupełnie nieszkodliwe. Substancje te, zwane alergenami, po dostaniu się do organizmu alergika, wywołują cały łańcuch reakcji alergicznej. Układ immunologiczny błędnie traktuje te cząsteczki jako groźne i powoduje rozwój stanu zapalnego.",
   };
 
   export const astma = {
@@ -27,7 +27,7 @@
     buttonLabel:'Umow sie na wizyte',
     img: require('../../../../../images/fotka2.svg').default,
     alt:'Image',
-    description:"Najczęstszym powodem wizyty w gabinecie ginekologicznym jest chęć otrzymania recepty na antykoncepcję hormonalną. Oczywiście musi być to poprzedzone umówieniem terminu oraz oczekiwaniem na wizytę. Niestety czas oczekiwania do tradycyjnych gabinetów jest wydłużony, co dla kobiet stosujących regularną antykoncepcję może być sporym utrudnieniem. Z tego też powodu coraz większym zainteresowaniem cieszą się rozwiązania, które pozwalają otrzymać e-receptę na antykoncepcję.",
+    description:"Astma, inaczej nazywana dychawicą oskrzelową, to przewlekłe zapalenie oskrzeli prowadzące do niekontrolowanego ich skurczu. Astma była znana już w starożytnym Egipcie. Od mniej więcej 50 lat obserwuje się wzrost zachorowań na astmę, zwłaszcza w krajach wysoko rozwiniętych.",
   };
 
   export const bezsennosc = {

@@ -1,11 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef,useEffect } from "react";
 import { useAuth } from "../../../firebase";
 import { db } from "../../../firebase";
-import {  addDoc } from "firebase/firestore";
-import { collection } from "firebase/firestore";
+import { collection,Timestamp,addDoc } from "firebase/firestore";
 import styled from "styled-components";
-
-
+import { query, orderBy, onSnapshot} from "firebase/firestore";
+import {Button} from "../../../globalStyles"
+import {Form} from "../VisitPatient/Answer/Answer";
+import {  useNavigate } from "react-router-dom";
 // import { TextField } from "./TextField";
 // import { Text } from "../../../auth/SignupForm.styled";
 
@@ -18,6 +19,9 @@ export const SendForm = ({ choosenDoctor, setChoosenDoctor }) => {
   const jakiLekRef = useRef();
   const kiedyLekRef = useRef();
   const przebytaChorobaRef = useRef();
+
+  const navigate = useNavigate();
+
 
   const doctor = (() => {
     if (choosenDoctor == 1) {
@@ -48,10 +52,16 @@ export const SendForm = ({ choosenDoctor, setChoosenDoctor }) => {
         jakiLek: jakiLekRef.current.value,
         kiedyLek: kiedyLekRef.current.value,
         przebytaChoroba: przebytaChorobaRef.current.value,
+        created: Timestamp.now()
       });
+      navigate("../success", { replace: true });
     } catch (err) {
       console.log(err);
     }
+
+
+     
+
   };
 
   //  console.log(choosenDoctor);
@@ -59,38 +69,50 @@ export const SendForm = ({ choosenDoctor, setChoosenDoctor }) => {
   //BODY PAGE
 
   return (
-    <div>
+    <Form>
       <h1 className='my-4 font-weight-bold-display-4'>Formularz</h1>
       {/* {console.log(formik.values)} */}
       <form onSubmit={(e) => handleForm(e)}>
         <InPut ref={objawyRef} label='Objawy' name='objawy' type='text' />
+        <label>
+        Jaki potrzebujesz lek / Nie wiem
+        </label>
         <InPut
           ref={jakiLekRef}
           label='Jaki potrzebujesz lek / Nie wiem'
           name='jakiLek'
           type='text'
+          required
         />
+                <label>
+        Jaki potrzebujesz lek / Nie wiem
+        </label>
         <InPut
           ref={kiedyLekRef}
           label='Kiedy brałeś leki i jakie'
           name='kiedyLek'
           type='text'
+          required
         />
+                <label>
+        Jaki potrzebujesz lek / Nie wiem
+        </label>
         <InPut
           ref={przebytaChorobaRef}
           label='Przebyte choroby'
           name='przebytaChoroba'
           type='text'
+          required
         />
-        <button
+        <Button
           type='submit'
           onClick={handleForm}
           className='btn btn-dark mt-4'
         >
           Wyslij
-        </button>
+        </Button>
       </form>
-    </div>
+    </Form>
   );
 };
 
