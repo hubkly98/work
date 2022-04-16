@@ -5,7 +5,7 @@ import Home from "./components/pages/HomePage/Home";
 import Covid from "./components/pages/Covid/Covid";
 import { LoginForm } from "./auth/LoginForm";
 import { SignupForm } from "./auth/SignupForm";
-import { Footer, Navbar } from "./components";
+import {  Navbar } from "./components";
 import Knowledge from "./components/pages/Knowledge/Diseases/Knowledge";
 import Antykoncepcjahormonalna from "./components/pages/Knowledge/Diseases/Section/SectionPage/SectionPage";
 import Specialists from "./components/pages/Specialists/Specialists";
@@ -38,7 +38,7 @@ function App() {
         <Route path='/answer/:id' element={<Answer/>} />
         <Route path="success" element={<Success/>} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

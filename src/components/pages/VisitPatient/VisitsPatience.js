@@ -20,6 +20,7 @@ function VisitsPatient() {
           jakiLek: doc.data().jakiLek.toString(),
           kiedyLek: doc.data().kiedyLek.toString(),
           przebytaChoroba: doc.data().przebytaChoroba.toString(),
+          objawy: doc.data().objawy.toString(),
           created: doc.data().created.toString(),
         }))
       );

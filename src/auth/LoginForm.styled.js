@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Main = styled.div`
 background-image: linear-gradient(120deg, #008080,#00b894, #55efc4,#81ecec);
+/* background-color:#224558 ; */
 min-height:100vh; 
 box-sizing:border-box;
 

@@ -5,8 +5,8 @@ export const InfoSec = styled.div`
   padding: 160px 0;
   background: ${({ lightBg }) => (lightBg ? "#fff" : "#224558")};
 `;
-//5C6469
-
+//"#224558"
+// background-image: linear-gradient(120deg, #008080,#00b894, #55efc4,#81ecec);
 export const InfoRow = styled.div`
   display: flex;
   margin: 0 -15px -15px -15px;

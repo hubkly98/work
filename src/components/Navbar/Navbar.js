@@ -18,18 +18,28 @@ import {
   NavBtnLink,
 } from "./Navbar.styled";
 
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { logout } from "../../firebase";
 
-export default function  Navbar() {
+export default function Navbar() {
   const [click, setClick] = useState(false);
 
-  const currentUser = useAuth();   // useAuth() returns the current user
+  const currentUser = useAuth(); // useAuth() returns the current user
 
+  const [loading, setLoading] = useState(false);
+
+  async function handleLogOut() {
+    setLoading(true);
+    try {
+      await logout();
+    } catch {
+      alert("Nie udało się wylogować");
+    }
+    setLoading(false);
+  }
   // const email = currentUser.email;
-    // const {email} = currentUser; //same tylko z destrukturyzacją
+  // const {email} = currentUser; //same tylko z destrukturyzacją
 
-
-  
   const handleClick = () => setClick(!click);
 
   return (
@@ -69,29 +79,31 @@ export default function  Navbar() {
               </NavItem>
 
               <NavItem>
-                {
-                  (currentUser === "" ||currentUser || currentUser) && <NavLinks to='/visitPatient'>Wizyty pacjentow</NavLinks>
-                }
+                {(currentUser === "" || currentUser || currentUser) && (
+                  <NavLinks to='/visitPatient'>Wizyty pacjentow</NavLinks>
+                )}
               </NavItem>
               <NavItem>
-                {
-                  (currentUser !== "" ||currentUser || currentUser) && <NavLinks to='/odpowiedzi'>odpowiedzi od Lekarza</NavLinks>
-                }
+                {(currentUser !== "" || currentUser || currentUser) && (
+                  <NavLinks to='/odpowiedzi'>odpowiedzi od Lekarza</NavLinks>
+                )}
               </NavItem>
 
               <NavItemBtn>
-                {
-                  currentUser ?(
-                    <UserDiv><p>{currentUser.displayName}</p>
-                    {/* {tu ikonka logout} on click logout tak jak tam masz w tym logowaniu */}
-                    </UserDiv>
-                  ):
-                  (
+                {currentUser ? (
+                  <UserDiv>
+                    <p>{currentUser.displayName}</p>
+                    <Icon>
+                      <ExitToAppIcon onClick={handleLogOut} />
+                    </Icon>
+                  </UserDiv>
+                ) : (
                   <NavBtnLink to='/login'>
-                    <Button fontBig primary>Zaloguj sie</Button>
+                    <Button fontBig primary>
+                      Zaloguj sie
+                    </Button>
                   </NavBtnLink>
-                  )
-                }
+                )}
               </NavItemBtn>
             </NavMenu>
           </NavbarContainer>
@@ -99,11 +111,18 @@ export default function  Navbar() {
       </IconContext.Provider>
     </>
   );
-};
+}
 
 const UserDiv = styled.div`
-  color: red;
+  font-size: 23px;
+  color: black;
   padding: 5px 20px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   border-radius: 20px;
-`
+  display: flex;
+  /* margin: 10px; */
+  justify-content: space-between;
+`;
+const Icon = styled.div`
+  padding: 0 10px;
+`;
