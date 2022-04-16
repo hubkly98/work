@@ -10,7 +10,6 @@ import {
   Searchin,
   Img,
 } from "./Diseases.styled";
-import imgForm from "../../../../images/anty_hormonalna.png";
 
 const Disease = ({ placeholder, data }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -40,8 +39,8 @@ const Disease = ({ placeholder, data }) => {
           })
           .slice(0, 20)
           .map((value, key) => {
-            console.log(value.img);
-            console.log(imgForm);
+            // console.log(value.img);
+            // console.log(imgForm);
             return (
               <AllWrapped>
                 <TextWra>

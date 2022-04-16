@@ -41,6 +41,7 @@ export default function Navbar() {
   // const {email} = currentUser; //same tylko z destrukturyzacją
 
   const handleClick = () => setClick(!click);
+  // console.log(currentUser.uid);
 
   return (
     <>
@@ -66,28 +67,31 @@ export default function Navbar() {
                 <NavLinks to='/knowledge'>Wiedza</NavLinks>
               </NavItem>
 
-              <NavItem>
-                <NavLinks to='/covid'>Covid-19</NavLinks>
-              </NavItem>
+            
 
               <NavItem>
                 <NavLinks to='/doctor'>Wizyty</NavLinks>
               </NavItem>
 
-              <NavItem>
+              {/* <NavItem>
                 <NavLinks to='/specialists'>Specjalisci</NavLinks>
-              </NavItem>
+              </NavItem> */}
 
               <NavItem>
-                {(currentUser === "" || currentUser || currentUser) && (
+                {currentUser === "" ||
+                currentUser === "" ||
+                currentUser === "" ? (
                   <NavLinks to='/visitPatient'>Wizyty pacjentow</NavLinks>
+                ) : (
+                  <NavLinks to='/odpowiedzi'>Odpowiedzi od Lekarza</NavLinks>
                 )}
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 {(currentUser !== "" || currentUser || currentUser) && (
                   <NavLinks to='/odpowiedzi'>odpowiedzi od Lekarza</NavLinks>
                 )}
-              </NavItem>
+              </NavItem> */}
+                  <NavLinks to='/visitPatient'>Wizyty pacjentow</NavLinks>
 
               <NavItemBtn>
                 {currentUser ? (

@@ -40,7 +40,7 @@ const Answer = () => {
           <label>Pacjent</label>
           <InPut
             label='Jaki potrzebujesz lek / Nie wiem'
-            name='jakiLek'
+            name='pacjent'
             type='text'
             value={userName}
             disable
@@ -50,8 +50,8 @@ const Answer = () => {
           <label>Przepisany lek</label>
           <InPut
             ref={przepisanyLek}
-            label='Jaki potrzebujesz lek / Nie wiem'
-            name='jakiLek'
+            label='Przepisany lek'
+            name='przepisany lek'
             type='text'
           />
         </div>
@@ -59,8 +59,8 @@ const Answer = () => {
           <label>Diagnoza</label>
           <TextArea
             ref={diagnoza}
-            label='Jaki potrzebujesz lek / Nie wiem'
-            name='jakiLek'
+            label='diagnowa'
+            name='diagnoza'
             type='text'
             rows="6"
           />

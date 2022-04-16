@@ -60,7 +60,7 @@ export const Button = styled.button`
 `;
 
 export const Text2 = styled.div`
-    margin-top:20px;
+    margin-top:15px;
     text-align:center;
     font-size:15px;
 `

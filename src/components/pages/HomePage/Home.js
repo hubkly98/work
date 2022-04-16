@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { homeObjOne, homeObjTwo, homeObjFour } from "./Data";
-import { InfoSection} from "../..";
+import { homeObjOne,homeObjFour } from "./Data";
+import { InfoSection } from "../..";
 import Doctor from "../Doctor/Doctor";
-import { doctorObjOne,doctorObjTwo, doctorObjThree } from "../Doctor/DataDoctor";
+import {
+  doctorObjOne,
+  doctorObjTwo,
+  doctorObjThree,
+} from "../Doctor/DataDoctor";
 import { getDocs } from "firebase/firestore";
 import { db, useAuth } from "../../../firebase";
 import { collection } from "firebase/firestore";
@@ -15,7 +19,12 @@ const Home = ({ choosenDoctor, setChoosenDoctor }) => {
   useEffect(() => {
     const getUsers = async () => {
       if (!!currentUser) {
-        const wizytaCollectionRef = collection(db, "users", currentUser.uid, "wizyty");
+        const wizytaCollectionRef = collection(
+          db,
+          "users",
+          currentUser.uid,
+          "wizyty"
+        );
         const data = await getDocs(wizytaCollectionRef);
         setUsers(data.docs.map((item) => ({ ...item.data(), id: item.id })));
       }
@@ -26,16 +35,23 @@ const Home = ({ choosenDoctor, setChoosenDoctor }) => {
   return (
     <>
       <div>
-        <ul>{!!users && users.map((item) => <li key={item.id}>{item.objawy}</li>)}</ul>
+        <ul>
+          {!!users && users.map((item) => <li key={item.id}>{item.objawy}</li>)}
+        </ul>
       </div>
       <InfoSection {...homeObjOne} />
       {/* <InfoSection {...homeObjTwo} /> */}
 
-      <Doctor choosenDoctor={choosenDoctor} setChoosenDoctor={setChoosenDoctor} {...doctorObjOne} {...doctorObjTwo} {...doctorObjThree} />
-     
-     
+      <Doctor
+        choosenDoctor={choosenDoctor}
+        setChoosenDoctor={setChoosenDoctor}
+        {...doctorObjOne}
+        {...doctorObjTwo}
+        {...doctorObjThree}
+      />
+
       <InfoSection {...homeObjFour} />
-      <Knowledge/>
+      <Knowledge />
     </>
   );
 };

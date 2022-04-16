@@ -42,9 +42,9 @@ export const SignupForm = () => {
 
       const { uid, displayName, email } = user;
       
-      console.log(uid, email, displayName);
+      // console.log(uid, email, displayName);
 
-       console.log(doktorRef.current.checked); 
+      //  console.log(doktorRef.current.checked); 
       // await addDoc(userCollectionRef, {
       //   displayName,
       //   email,
@@ -67,7 +67,7 @@ export const SignupForm = () => {
           // isDoctor: true,
           }); //tworzenie kolekcji userów
       }
-      console.log("Display Name",displayName);
+      // console.log("Display Name",displayName);
       // const currentUserRef = collection(db, "users").doc(currentUser.uid).collection("Presciption");
 
       // await addDoc(currentUserRef,{displayName,email,uid,isDoctor:true});
@@ -78,37 +78,37 @@ export const SignupForm = () => {
     setLoading(false);
   }
 
-  async function handleLogOut() {
-    setLoading(true);
-    try {
-      await logout();
-    } catch {
-      alert("Nie udało się wylogować");
-    }
-    setLoading(false);
-  }
+  // async function handleLogOut() {
+  //   setLoading(true);
+  //   try {
+  //     await logout();
+  //   } catch {
+  //     alert("Nie udało się wylogować");
+  //   }
+  //   setLoading(false);
+  // }
     
 
   //FUNKCJA DO PODSUMOWANIA FORMULARZA 
 
-  async function handleSubmit() {
-    const wizytaRef = doc(db, "wizyta");
-    setDoc(wizytaRef, {
-      medicin: "apap", // to bedzie z Inputa w Formularzu APAP XD
-      currentUser: "DANY PACJENT ID",// wyciagam z zalogowanego usera
-      dawkowanie: "2", 
-    });
+  // async function handleSubmit() {
+  //   const wizytaRef = doc(db, "wizyta");
+  //   setDoc(wizytaRef, {
+  //     medicin: "apap", // to bedzie z Inputa w Formularzu APAP XD
+  //     currentUser: "DANY PACJENT ID",// wyciagam z zalogowanego usera
+  //     dawkowanie: "2", 
+  //   });
   
-    const WizytazPacjetemRef = doc(db, "users", "IDLEKARZA", "wizyta", "123");
-    setDoc(WizytazPacjetemRef, {
-      medicin: "apap", // to bedzie z Inputa w Formularzu APAP XD
-      currentUser: "DANY PACJENT ID",// wyciagam z zalogowanego usera
-      dawkowanie: "2", 
+  //   const WizytazPacjetemRef = doc(db, "users", "IDLEKARZA", "wizyta", "123");
+  //   setDoc(WizytazPacjetemRef, {
+  //     medicin: "apap", // to bedzie z Inputa w Formularzu APAP XD
+  //     currentUser: "DANY PACJENT ID",// wyciagam z zalogowanego usera
+  //     dawkowanie: "2", 
       
-    });
+  //   });
 
 
-  }
+  // }
 
 
   return (
@@ -121,6 +121,11 @@ export const SignupForm = () => {
         <InPut ref={passwordRef} type='password' placeholder='Password' />
         <InPut ref={nameRef} type='text' placeholder='Name' />
 
+        <div>
+
+         <input ref={doktorRef} type="checkbox" id="doctor" name="doctor"  />
+       <label for="doctor">Czy jestes lekarzem? </label>
+        </div>
         <Button
           value='Zarejestruj sie'
           disabled={loading || currentUser}
@@ -129,11 +134,6 @@ export const SignupForm = () => {
           Zarejestruj sie
         </Button>
 
-        <div>
-
-         <input ref={doktorRef} type="checkbox" id="doctor" name="doctor"  />
-       <label for="doctor">Czy jestes lekarzem? </label>
-        </div>
 
 
         {/* DOKONCZ SPAN I LINK DO REJESTRACJI  */}
@@ -141,10 +141,10 @@ export const SignupForm = () => {
           Masz już konto? <Link to='/login'>Zaloguj sie</Link>
         </Text2>
       </Pliki>
-
+{/* 
       <button disabled={loading || !currentUser} onClick={handleLogOut}>
         Wyloguj
-      </button>
+      </button> */}
     </Main>
   );
 };
