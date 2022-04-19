@@ -107,27 +107,23 @@ export const SendForm = ({ choosenDoctor, setChoosenDoctor }) => {
 
 export const InPut = styled.input`
   font-size: 20px;
-  /* border-bottom: 2px solid #adadad; */
   position: relative;
   margin: 10px 0 10px 10px;
   color: #333;
   border: bold;
   width: 100%;
   outline: none;
-  /* background: none; */
   padding: 0 5px;
   height: 40px;
 `;
 export const TextArea = styled.textarea`
   font-size: 20px;
-  /* border-bottom: 2px solid #adadad; */
   position: relative;
   margin: 10px 0 10px 10px;
   color: #333;
   border: bold;
   width: 100%;
   outline: none;
-  /* background: none; */
   padding: 0 5px;
   height: auto;
 `;

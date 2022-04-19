@@ -136,3 +136,15 @@ export const NavBtnLink = styled(Link)`
   border: none;
   outline: none;
 `;
+
+export const UserDiv = styled.div`
+  font-size: 23px;
+  color: black;
+  padding: 5px 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+`;
+export const Icon = styled.div`
+  padding: 0 10px;
+`;

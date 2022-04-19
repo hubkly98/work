@@ -1,10 +1,9 @@
 import React from 'react'
-// import AnswerFromDoctor from './AnswerFromDoctor';
 
 import AnswerFromDoctor from './AnswerFromDoctor';
 const AnswerFromDoctorDetails = ({odp,wizyty}) => {
 
-  const dostanWizyte = (id) => !!wizyty && wizyty.find(item=>item.id===id)
+  const dostanWizyte = (id) => !!wizyty && wizyty.find(item=>item.id===id); //filtrowanie wizyt i odpowiedzi 
   
   console.log("wizyty::", wizyty);
   return (

@@ -16,6 +16,9 @@ import {
   NavLinks,
   NavItemBtn,
   NavBtnLink,
+  UserDiv,
+  Icon
+
 } from "./Navbar.styled";
 
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
@@ -71,24 +74,13 @@ export default function Navbar({ czyjestDoktorem }) {
                 <NavLinks to='/doctor'>Wizyty</NavLinks>
               </NavItem>
 
-              {/* <NavItem>
-                <NavLinks to='/specialists'>Specjalisci</NavLinks>
-              </NavItem> */}
-
               <NavItem>
                 {czyjestDoktorem ? (
                   <NavLinks to='/visitPatient'>Wizyty pacjentow</NavLinks>
                 ) : (
                   <NavLinks to='/odpowiedzi'>Odpowiedzi od Lekarza</NavLinks>
                 )}
-              </NavItem> 
-              {/* <NavItem>
-                {(currentUser !== "" || currentUser || currentUser) && (   //uzyt zmiennych "czyjestpacjentem z APP.js"
-                  <NavLinks to='/odpowiedzi'>odpowiedzi od Lekarza</NavLinks>
-                )}
-              </NavItem> */}
-           
-           
+              </NavItem>
 
               <NavItemBtn>
                 {currentUser ? (
@@ -113,17 +105,3 @@ export default function Navbar({ czyjestDoktorem }) {
     </>
   );
 }
-
-const UserDiv = styled.div`
-  font-size: 23px;
-  color: black;
-  padding: 5px 20px;
-  /* border: 1px solid white; */
-  border-radius: 20px;
-  display: flex;
-  /* margin: 10px; */
-  justify-content: space-between;
-`;
-const Icon = styled.div`
-  padding: 0 10px;
-`;

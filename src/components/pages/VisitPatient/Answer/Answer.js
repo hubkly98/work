@@ -12,8 +12,10 @@ const Answer = ( {wizyta } ) => {
   const { userName } = location.state;
 
   const { id } = useParams();
-  const { pacjent } = useParams();
-  const answerRef = doc(db, "wizyty", id, "odpowiedz", uuidv4());
+  // const { pacjent } = useParams();
+  // const answerRef = doc(db, "wizyty", id, "odpowiedz", uuidv4());
+  // const uid = useRef();
+
 
   const answerRef2 = doc(db , "odpowiedzi",id);
   
@@ -21,7 +23,6 @@ const Answer = ( {wizyta } ) => {
 
   const przepisanyLek = useRef();
   const diagnoza = useRef();
-  const uid = useRef();
 
   const handleForm = async (e) => {
     e.preventDefault(); //chamuje defaultowe przekierowanie 
@@ -30,9 +31,7 @@ const Answer = ( {wizyta } ) => {
       await setDoc(answerRef2, {
         lek: przepisanyLek.current.value,
          diagnoza: diagnoza.current.value,
-        //  pacjent: pacjent, 
         created:Timestamp.now(), 
-        //  pacjent:"ADOLF",
       }) 
       navigate("../success", { replace: true });
       } catch (err) {
@@ -91,21 +90,18 @@ export default Answer;
 
 export const InPut = styled.input`
   font-size: 20px;
-  /* border-bottom: 2px solid #adadad; */
   position: relative;
   margin: 10px 0 10px 10px;
   color: #333;
   border: bold;
   width: 100%;
   outline: none;
-  /* background: none; */
   padding: 0 5px;
   height: 40px;
 `;
 
 export const TextArea = styled.textarea`
   font-size: 20px;
-  /* border-bottom: 2px solid #adadad; */
   position: relative;
   margin: 10px 0 10px 10px;
   color: #333;

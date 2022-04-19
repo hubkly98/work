@@ -49,9 +49,22 @@ function AnswerFromDoctor({ asd, wizyta }) {
 
 export default AnswerFromDoctor;
 
+
 const AllWrapped = styled.div`
-  margin-top: 5px;
-  
+ margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  border-radius: 20px;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-top: 100px;
+  margin-bottom: 200px;
+  display: flex;
+  /* flex-direction: column; */
+  padding: 40px;
+  align-items: center;  
 `;
 const StyledVisit = styled.div`
   margin-left: auto;
@@ -63,6 +76,8 @@ const StyledVisit = styled.div`
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   margin-top: 100px;
+  margin-left:50px;
+  margin-right:50px;
   margin-bottom: 200px;
   display: flex;
   flex-direction: column;

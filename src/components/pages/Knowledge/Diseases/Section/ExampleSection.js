@@ -30,7 +30,7 @@ const ExampleSection = ({
                 <Heading> {headline} </Heading>
                 {/* **EVERY** TOP TOP LINE TEXT */}
                 <Description>{description}</Description>
-                <Link to='/specialists'>
+                <Link to='/doctor'>
                   <Button big fontBig primary={primary}>
                     {buttonLabel}
                   </Button>
