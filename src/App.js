@@ -14,6 +14,7 @@ import Success from "./components/pages/VisitPatient/Answer/Success";
 import DoctorPage from "./components/pages/Doctor/DoctorPage";
 // import AnswerFromDoctor from "./components/pages/AnswerFromDoctor/AnswerFromDoctor";
 import AnswerFromDoctor from "./components/pages/AnswerFromDoctor/AnswerFromDoctor";
+import AnswerFromDoctorDetails from "./components/pages/AnswerFromDoctor/AnswerFromDoctorDetails";
 import { collection, query, orderBy, onSnapshot} from "firebase/firestore";
 import { db } from "./firebase";
 import { useAuth } from "./firebase";
@@ -23,9 +24,16 @@ function App() {
   const [choosenDoctor, setChoosenDoctor] = useState(null);
   const [wizyty, setWizyty] = useState([]);
   const currentUser = useAuth();
+  
+  const [mojodpowiedzi, setMojodpowiedzi] = useState([]);
+  const [uzytkownicy, setUzytkownicy ] = useState([])//useEffectem pobrac wszystkich uzytkownikow
+  const [doktorzy, setDoktorzy ] = useState([])
 
-  useEffect(() => {
-    const q = query(collection(db, "wizyty"), orderBy("created", "desc"));
+
+
+useEffect(() => {
+  
+  const q = query(collection(db, "wizyty"), orderBy("created", "desc"));
     onSnapshot(q, (querySnapshot) => {
       setWizyty(
         querySnapshot.docs.map((doc) => ({
@@ -38,17 +46,71 @@ function App() {
           objawy: doc.data().objawy.toString(),
           created: doc.data().created.toString(),
         }))
-      );
-    });
-  }, [])
+        );
+      });
+      
+    }, [])
 
+    
+
+      useEffect(() => {
+        const qa = query(collection(db, 'odpowiedzi'), orderBy('created', 'desc'))
+        onSnapshot(qa, (querySnapshot) => {
+          setMojodpowiedzi(querySnapshot.docs.map(doc => ({
+            id: doc.id,
+        lek: doc.data().lek,
+        diagnoza: doc.data().diagnoza,
+        doktor: currentUser,
+      })))
+    })
+        
+  },[])
+
+
+  useEffect(() => {
+    const qa = query(collection(db, 'users'))
+    onSnapshot(qa, (querySnapshot) => {
+      setUzytkownicy(querySnapshot.docs.map(doc => ({
+     id:doc.id,
+   
+  })))
+})
+    
+},[])
+
+useEffect(() => {
+  const qa = query(collection(db, 'doctors'))
+  onSnapshot(qa, (querySnapshot) => {
+    setDoktorzy(querySnapshot.docs.map(doc => ({
+   id:doc.id,
+ 
+})))
+})
   
-  console.log(wizyty);
+},[])
 
+
+const wizytyFiltrowane = currentUser?.uid && wizyty.filter(item => item.doktor === currentUser.uid);
+
+
+const czyJestPacjentem = currentUser?.uid && uzytkownicy.some(item => item.id === currentUser.uid);
+const czyjestDoktorem = currentUser?.uid && doktorzy.some(item => item.id === currentUser.uid);
+
+
+const pytaniedoLekarza = currentUser?.uid && mojodpowiedzi.filter(item => item.id === currentUser.uid);
+
+
+console.log("Uzytkownicy", uzytkownicy);
+console.log("Doktorzy", doktorzy);
+console.log("CurrentUSerUID", currentUser?.uid);
+
+
+console.log("czyJestPacjentem", czyJestPacjentem);
+console.log("czyJestDoktorem", czyjestDoktorem);
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <Navbar />
+      <Navbar czyjestDoktorem={czyjestDoktorem} />
       <Routes>
         {/*Routes is Switch */}
         <Route path='/' element={<Home choosenDoctor={choosenDoctor} setChoosenDoctor={setChoosenDoctor} />} />
@@ -63,12 +125,12 @@ function App() {
         <Route path='/:id' element={<Antykoncepcjahormonalna />} />
 
         <Route path='/doctor' element={<DoctorPage choosenDoctor={choosenDoctor} setChoosenDoctor={setChoosenDoctor}/>} />
-        <Route path='visitPatient' element={<VisitsPatient wizyty={wizyty}/>} />
-        <Route path='/answer/:id' element={<Answer />} />
-        <Route path="success" element={<Success/>} />
+        <Route path='visitPatient' element={<VisitsPatient wizyty={wizytyFiltrowane}/>} />
+        <Route path='/answer/:id' element={<Answer  wizyty={wizyty} />} />
 
-        <Route path="odpowiedzi" element={<AnswerFromDoctor wizyty={wizyty} uid={currentUser && currentUser.uid}/>}  />
+        <Route path="odpowiedzi" element={<AnswerFromDoctorDetails wizyty={wizyty} uid={currentUser && currentUser.uid} odp={mojodpowiedzi} />}  />
         
+        <Route path="success" element={<Success/>} />
         
       </Routes>
       {/* <Footer /> */}

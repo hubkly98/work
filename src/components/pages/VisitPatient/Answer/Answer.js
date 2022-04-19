@@ -2,32 +2,42 @@ import React, { useRef } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { db } from "../../../../firebase";
-import { doc } from "firebase/firestore";
-import { setDoc } from "firebase/firestore";
+import { doc, Timestamp } from "firebase/firestore";
+import { setDoc,addDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
 import { Button } from "../../../../globalStyles";
 
-const Answer = () => {
+const Answer = ( {wizyta } ) => {
   const location = useLocation();
   const { userName } = location.state;
 
   const { id } = useParams();
-
+  const { pacjent } = useParams();
   const answerRef = doc(db, "wizyty", id, "odpowiedz", uuidv4());
 
+  const answerRef2 = doc(db , "odpowiedzi",id);
+  
   const navigate = useNavigate();
 
   const przepisanyLek = useRef();
   const diagnoza = useRef();
+  const uid = useRef();
 
   const handleForm = async (e) => {
     e.preventDefault(); //chamuje defaultowe przekierowanie 
 
     try {
-      await setDoc(answerRef, {lek: przepisanyLek.current.value, diagnoza: diagnoza.current.value}) 
+      await setDoc(answerRef2, {
+        lek: przepisanyLek.current.value,
+         diagnoza: diagnoza.current.value,
+        //  pacjent: pacjent, 
+        created:Timestamp.now(), 
+        //  pacjent:"ADOLF",
+      }) 
       navigate("../success", { replace: true });
       } catch (err) {
-        console.alert(err);
+        // console.alert(err);
+        console.log("ERRORRRRR")
       }
     // console.log( przepisanyLek, kiedyLekRef, przebytaChorobaRef);
   };
