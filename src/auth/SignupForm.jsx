@@ -51,22 +51,24 @@ export const SignupForm = () => {
       //   uid,
       //   isDoctor: true,
       // }); //tworzenie kolekcji userów
+      
       if(!doktorRef.current.checked ){
       await setDoc(doc(db,"users",uid), {
         displayName,
         email,
         uid,
-        // isDoctor: true,
-        }); //tworzenie kolekcji userów
+        }); //tworzenie kolekcji users
       }
       else{
         await setDoc(doc(db,"doctors",uid), {
           displayName,
           email,
           uid,
-          // isDoctor: true,
-          }); //tworzenie kolekcji userów
+          }); //tworzenie kolekcji doctors
       }
+
+
+
       // console.log("Display Name",displayName);
       // const currentUserRef = collection(db, "users").doc(currentUser.uid).collection("Presciption");
 

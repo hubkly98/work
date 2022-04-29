@@ -38,7 +38,7 @@ const VisitDetails = ({ wizyta ,wizyty}) => {
     fetch();
   }, [docRef]);
   
-  //destrukturyzacja wizyty
+  
   return (
     <StyledVisit>
       <Wrap>

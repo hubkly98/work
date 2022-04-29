@@ -34,7 +34,12 @@ export const LoginForm = () => {
 
   async function handleLogin() {
     setLoading(true);
-    await login(emailRef.current.value, passwordRef.current.value);
+    try{
+
+      await login(emailRef.current.value, passwordRef.current.value);
+    }catch{
+      alert("błedne podanie hasła lub adresu emaila");
+    }
   }
 
   return (

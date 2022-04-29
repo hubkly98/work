@@ -9,11 +9,6 @@ function AnswerFromDoctor({ asd, wizyta }) {
 
   const { diagnoza, lek} = asd;
 
-  console.log("xxxD", { diagnoza });
-  console.log("WIZYTA ", wizyta);
-
-  console.log("wizyta.diagnoza", wizyta.jakiLek);
-
   return (
     <AllWrapped>
 

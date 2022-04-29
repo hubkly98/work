@@ -39,8 +39,6 @@ const Disease = ({ placeholder, data }) => {
           })
           .slice(0, 20)
           .map((value, key) => {
-            // console.log(value.img);
-            // console.log(imgForm);
             return (
               <AllWrapped>
                 <TextWra>

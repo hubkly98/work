@@ -94,6 +94,8 @@ const wizytyFiltrowane = currentUser?.uid && wizyty.filter(item => item.doktor =
 
 
 const czyJestPacjentem = currentUser?.uid && uzytkownicy.some(item => item.id === currentUser.uid);
+
+
 const czyjestDoktorem = currentUser?.uid && doktorzy.some(item => item.id === currentUser.uid);
 
 
@@ -110,7 +112,7 @@ console.log("czyJestDoktorem", czyjestDoktorem);
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <Navbar czyjestDoktorem={czyjestDoktorem} />
+      <Navbar czyjestDoktorem={czyjestDoktorem} czyJestPacjentem={czyJestPacjentem} />
       <Routes>
         {/*Routes is Switch */}
         <Route path='/' element={<Home choosenDoctor={choosenDoctor} setChoosenDoctor={setChoosenDoctor} />} />

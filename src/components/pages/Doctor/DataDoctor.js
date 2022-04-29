@@ -2,22 +2,22 @@
  export const doctorObjOne = {
   
   doctorName: "Adam Nowak",
-  doctorDescription: "Opis doktorka co umie i jakie ma osiągnięcia w zakresie medycyny",
-  doctorSpecialization: "Lekarz Rodzinny",
+  doctorDescription: "Lekarz specjalista internista w klinice zdrowia z doświadczeniem ponad 5 lat.",
+  doctorSpecialization: "Lekarz internista",
 };
 
 export const doctorObjTwo = {
   
   doctorName2: "Anna Nach",
-  doctorDescription2: "Opis doktorka co umie i jakie ma osiągnięcia w zakresie medycyny",
+  doctorDescription2: "Lekarz rodzinny w klinice zdrowia, z dużym doświadczeniem",
   doctorSpecialization2: "Lekarz Rodzinny",
 };
 
 export const doctorObjThree = {
   
   doctorName3: "Wieslaw Bialy",
-  doctorDescription3: "Opis doktorka co umie i jakie ma osiągnięcia w zakresie medycyny",
-  doctorSpecialization3: "Lekarz Ogólny",
+  doctorDescription3: "Od Lat zamiłowanie w leczeniu małych pacjentów",
+  doctorSpecialization3: "Lekarz pediatra",
 };
 
 // export default doctorObjOne;
