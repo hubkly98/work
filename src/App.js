@@ -122,6 +122,7 @@ console.log("czyJestDoktorem", czyjestDoktorem);
           element={<Specialists choosenDoctor={choosenDoctor} setChoosenDoctor={setChoosenDoctor} />}
         />
         <Route path='/login' element={<LoginForm />} />
+        <Route path='/work' element={<Home />} />
         <Route path='/sign-up' element={<SignupForm />} />
         <Route path='/knowledge' element={<Knowledge />} />
         <Route path='/:id' element={<Antykoncepcjahormonalna />} />
